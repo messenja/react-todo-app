@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
-import { rootReducer } from './reducers/rootReducer'
+import appReducer from './reducers'
 
-const store = createStore(rootReducer);
+const store = createStore(appReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default store;

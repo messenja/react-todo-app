@@ -9,7 +9,6 @@ export const VisibilityFilters = {
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
 
-
 export function addTodo(text) {
   return ({
     type: ADD_TODO,
