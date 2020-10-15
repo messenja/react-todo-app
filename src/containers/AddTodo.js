@@ -5,11 +5,16 @@ import { addTodo } from '../actions';
 const AddTodo = ({ dispatch }) => {
   let input;
 
+  React.useEffect(() => {
+    input.focus();
+  }, [input]);
+
   return (
     <div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          input.focus();
           if (!input.value.trim()) {
             return;
           }
@@ -17,8 +22,15 @@ const AddTodo = ({ dispatch }) => {
           input.value = '';
         }}
       >
-        <input ref={(node) => (input = node)} />
-        <button type="submit">Add Todo</button>
+        <input placeholder="Add todo..." ref={(node) => (input = node)} />
+        <button
+          type="submit"
+          style={{
+            marginLeft: '4px',
+          }}
+        >
+          Add Todo
+        </button>
       </form>
     </div>
   );
