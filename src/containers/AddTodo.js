@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 
 const AddTodo = ({ dispatch }) => {
-  let input;
+  let input = null;
 
   React.useEffect(() => {
     input.focus();
   }, [input]);
+
+  const setInputRef = (elem) => (input = elem);
 
   return (
     <div>
@@ -22,7 +24,7 @@ const AddTodo = ({ dispatch }) => {
           input.value = '';
         }}
       >
-        <input placeholder="Add todo..." ref={(node) => (input = node)} />
+        <input type="text" placeholder="Add todo..." ref={setInputRef} />
         <button
           type="submit"
           style={{

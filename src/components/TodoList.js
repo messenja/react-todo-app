@@ -1,12 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Todo from './Todo';
+import EditTodo from './EditTodo';
 
-const TodoList = ({ todos, toggleTodo }) => (
+const TodoList = ({ todos, toggleTodo, deleteTodo, editTodo, updateTodo }) => (
   <ul>
-    {todos.map((todo) => (
-      <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
-    ))}
+    {todos.map((todo) =>
+      !todo.editable ? (
+        <Todo
+          key={todo.id}
+          onDeleteClick={() => deleteTodo(todo.id)}
+          onClick={() => toggleTodo(todo.id)}
+          onEditClick={() => editTodo(todo.id)}
+          {...todo}
+        />
+      ) : (
+        <EditTodo key={todo.id} {...todo} updateTodo={updateTodo} />
+      )
+    )}
   </ul>
 );
 
@@ -19,6 +30,9 @@ TodoList.propTypes = {
     }).isRequired
   ).isRequired,
   toggleTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  editTodo: PropTypes.func.isRequired,
+  updateTodo: PropTypes.func.isRequired,
 };
 
 export default TodoList;

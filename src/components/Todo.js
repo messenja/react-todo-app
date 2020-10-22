@@ -1,15 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Todo = ({ onClick, completed, text }) => (
-  <li
-    onClick={onClick}
-    style={{
-      textDecoration: completed ? 'line-through' : 'none',
-    }}
-  >
-    {text}
-  </li>
+const Todo = ({ onClick, onDeleteClick, onEditClick, completed, text }) => (
+  <div style={{ border: '1px solid black', padding: '5px' }}>
+    <div>
+      <li
+        onClick={onClick}
+        style={{
+          textDecoration: completed ? 'line-through' : 'none',
+        }}
+      >
+        {text}
+      </li>
+    </div>
+    <div>
+      <button
+        style={{
+          marginLeft: '4px',
+        }}
+        onClick={onEditClick}
+      >
+        Edit
+      </button>
+      <button
+        style={{
+          marginLeft: '4px',
+        }}
+        onClick={onDeleteClick}
+      >
+        Delete
+      </button>
+    </div>
+  </div>
 );
 
 Todo.propTypes = {
