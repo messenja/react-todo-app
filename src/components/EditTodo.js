@@ -11,7 +11,7 @@ const EditTodo = ({ updateTodo, text, id }) => {
   const setInputRef = (elem) => (input = elem);
 
   return (
-    <div style={{ border: '1px solid black', padding: '5px' }}>
+    <div>
       <li>
         <form
           onSubmit={(e) => {

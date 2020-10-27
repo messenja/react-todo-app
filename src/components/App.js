@@ -1,15 +1,12 @@
 import React from 'react';
-import Footer from './Footer';
-import AddTodo from '../containers/AddTodo';
-import VisibleTodoList from '../containers/VisibleTodoList';
-import './App.css';
+import Filter from './Filter';
+import Todos from './Todos';
 
 const App = () => (
-  <div>
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
-  </div>
+  <section>
+    <Todos />
+    <Filter />
+  </section>
 );
 
 export default App;

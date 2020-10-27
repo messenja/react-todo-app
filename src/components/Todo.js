@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Todo = ({ onClick, onDeleteClick, onEditClick, completed, text }) => (
-  <div style={{ border: '1px solid black', padding: '5px' }}>
+  <div>
     <div>
       <li
         onClick={onClick}

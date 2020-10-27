@@ -4,21 +4,23 @@ import Todo from './Todo';
 import EditTodo from './EditTodo';
 
 const TodoList = ({ todos, toggleTodo, deleteTodo, editTodo, updateTodo }) => (
-  <ul>
-    {todos.map((todo) =>
-      !todo.editable ? (
-        <Todo
-          key={todo.id}
-          onDeleteClick={() => deleteTodo(todo.id)}
-          onClick={() => toggleTodo(todo.id)}
-          onEditClick={() => editTodo(todo.id)}
-          {...todo}
-        />
-      ) : (
-        <EditTodo key={todo.id} {...todo} updateTodo={updateTodo} />
-      )
-    )}
-  </ul>
+  <div className="todo-list">
+    <ul>
+      {todos.map((todo) =>
+        !todo.editable ? (
+          <Todo
+            key={todo.id}
+            onDeleteClick={() => deleteTodo(todo.id)}
+            onClick={() => toggleTodo(todo.id)}
+            onEditClick={() => editTodo(todo.id)}
+            {...todo}
+          />
+        ) : (
+          <EditTodo key={todo.id} {...todo} updateTodo={updateTodo} />
+        )
+      )}
+    </ul>
+  </div>
 );
 
 TodoList.propTypes = {
